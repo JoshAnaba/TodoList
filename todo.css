@@ -89,6 +89,8 @@ ul li.checked::before{
     right: 0;
     top: 0;
     padding: 10px;
+    background-color: royalblue;
+    z-index: 2;
 }
 
 .close:hover{

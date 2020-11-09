@@ -1,16 +1,14 @@
 // Create a "close" button and append it to each list item
 
-var myList,i;
+var myList= document.getElementsByTagName("LI");
 
-myList= document.getElementsByTagName("li");
+var i;
 
-for(i= 0 ; i < myList.length ; i++){
+for(i = 0 ; i < myList.length ; i++){
 
-    var span,txt;
+    var span =document.createElement("SPAN");
 
-    span =document.createElement("span");
-
-    txt = document.createTextNode("&times;");
+    var txt = document.createTextNode("\u00D7");
 
     span.className = "close" ;
 
@@ -33,7 +31,7 @@ for(i = 0 ; i< close.length ; i++){
         var div = this.parentElement ;
 
         div.style.display = "none";
-        
+
     }
 }
 
