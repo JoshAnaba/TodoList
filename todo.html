@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo</title>
     <link rel="stylesheet" href="todo.css">
+    <script type="text/javascript" src="todo.js"></script>
+    <title>ToDo</title>
+
 </head>
 <body>
     <div id="content">
@@ -24,50 +26,37 @@
             </ul>
         </section>
     </div>
-<script>
-// Create a "close" button and append it to each list item
-var  mylist,i;
-
-myList = document.getElementsByTagName("LI");
-
-for (i = 0; i < myList.length; i++) {
-
-var span = document.createElement("SPAN");
-
-var txt = document.createTextNode("\u00D7");
-
-span.className = "close";
-
-span.appendChild(txt);
-
-myList[i].appendChild(span);
+    <script>
+        // Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
 }
 
 // Click on a close button to hide the current list item
-var close, i;
-
-close = document.getElementsByClassName("close");
-
-for(i = 0 ; i <close.length ; i++){
-
-  close[i].onclick  = function() {
-
-    var div =this.parentElement ;
-
-    div.style.display = "none"
-
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
   }
 }
-
+        
 // Add a "checked" symbol when clicking on a list item
 
-var list = document.querySelector("ul");
+var list = document.querySelector("UL");
 
-list.addEventListener('click', function(ev){
+list.addEventListener("click", function(ev){
+    
+    if(ev.target.tagName === "LI") {
 
-    if(ev.target.tagName === "li") {
-
-        ev.target.classList.toggle("checked")
+        ev.target.classList.toggle("checked");
 
     }
 
@@ -75,15 +64,13 @@ list.addEventListener('click', function(ev){
 
 // Create a new list item when clicking on the "Add" button
 
-const newElement=()=> {
+function newElement() {
 
-    var li, inputValue, t;
+    var li = document.createElement("LI");
 
-    li = document.createElement("li");
+   var inputValue = document.getElementById("myInput").value;
 
-    inputValue = document.getElementsById("myInput").value;
-
-    t = document.createTextNode(inputValue);
+    var t = document.createTextNode(inputValue);
 
     li.appendChild(t);
 
@@ -98,13 +85,12 @@ const newElement=()=> {
 
     }
 
-    inputValue = "" ;
+    document.getElementById("myInput").value = "" ;
 
-    var span, txt;
     
-    span = document.createElement("span");
+    var span = document.createElement("SPAN");
 
-    txt = document.createTextNode("\u00D7");
+    var txt = document.createTextNode("\u00D7");
 
     span.className = "close" ;
 
@@ -124,6 +110,6 @@ const newElement=()=> {
 
 }
 
-</script>
+    </script>
 </body>
 </html>
