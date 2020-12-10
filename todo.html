@@ -10,20 +10,17 @@
 </head>
 <body>
     <div id="content">
-        <header id="header" class="header">
-            <h2>My To Do List</h2>
-            <input type="text" id="myInput" placeholder="Title...">
-            <span onclick="newElement()" id="addBtn">Add</span>
-        </header>
+        <h2>My To Do List</h2>
         <section>
             <ul id="list">
-                <li class='checked'>Learn HTML</li>
-                <li class="checked">Learn CSS</li>
-                <li>Learn JS fundamentals</li>
-                <li>Frameworks like Tailwind CSS, Vue.js, React.js</li>
-                <li>Learn hosting of websites</li>
-                <li>Apply for jobs</li>
+                <li class='checked'>I am a completed task</li>
+                <li>I am a task in progress</li>
+ 
             </ul>
+            <header id="header" class="header">
+                <input type="text" id="myInput" placeholder="Create a task...">
+                <div onclick="newElement()" id="addBtn" title= 'Add to the list'>+</div>
+            </header>
         </section>
     </div>
     <script>
@@ -33,6 +30,7 @@ var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
+  span.title = 'close task';
   span.className = "close";
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
@@ -67,7 +65,7 @@ list.addEventListener("click", function(ev){
 function newElement() {
 
     var li = document.createElement("LI");
-
+    li.title = 'created task'
    var inputValue = document.getElementById("myInput").value;
 
     var t = document.createTextNode(inputValue);
@@ -76,7 +74,7 @@ function newElement() {
 
     if(inputValue === "") {
 
-        alert("What is the next item on the list?!") ;
+        alert("Create a task!") ;
     }
 
     else{
@@ -91,6 +89,8 @@ function newElement() {
     var span = document.createElement("SPAN");
 
     var txt = document.createTextNode("\u00D7");
+
+    span.title = 'close task';
 
     span.className = "close" ;
 
