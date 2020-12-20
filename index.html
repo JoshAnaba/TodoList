@@ -6,24 +6,65 @@
     <link rel="stylesheet" href="todo.css">
     <script type="text/javascript" src="todo.js"></script>
     <title>ToDo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 <body>
     <div id="content">
         <h2>My To Do List</h2>
+        <header id="header" class="header">
+            <input type="text" id="myInput" placeholder="Create a task...">
+            <div onclick="newElement()" id="addBtn" title= 'Add to the list'>+</div>
+        </header>
         <section>
             <ul id="list">
                 <li class='checked'>I am a completed task</li>
                 <li>I am a task in progress</li>
- 
+                <li class='checked'>I am a completed task</li>
+                <li>I am a task in progress</li>
+                <li class='checked'>I am a completed task</li>
+                <li>I am a task in progress</li>
             </ul>
-            <header id="header" class="header">
-                <input type="text" id="myInput" placeholder="Create a task...">
-                <div onclick="newElement()" id="addBtn" title= 'Add to the list'>+</div>
-            </header>
+            <div id="trackTasks">
+                <!-- <div class="taskNum">5 tasks left</div> -->
+                <div id="filters">
+                    <div class="filter-all">All</div>
+                    <div class="filter-active">Active</div>
+                    <div class="filter-completed">Completed</div>
+                </div>
+                <div class="clear-completed" >Clear Completed</div>
+            </div>
+            
         </section>
     </div>
     <script>
+        // track tasks
+        $(document).ready(()=>{
+            $('.clear-completed').click(()=>{
+                $('ul li.checked').remove();
+                $('ul li:not(.checked)').show()
+            });
+           
+            $('.filter-completed').click(()=>{
+                $('ul li:not(.checked)').hide();
+                $('ul li.checked').show();
+            });
+
+            $('.filter-active').click(()=>{
+                $('ul li.checked').hide();
+                $('ul li:not(.checked)').show();
+            });
+
+            $('.filter-all').click(()=>{
+                $('ul li').show()
+            });
+
+        });
+
+        $(document).ready(()=>{
+            
+            
+        })
         // Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
 var i;
@@ -50,7 +91,7 @@ for (i = 0; i < close.length; i++) {
 
 var list = document.querySelector("UL");
 
-list.addEventListener("click", function(ev){
+list.addEventListener("click", (ev)=>{
     
     if(ev.target.tagName === "LI") {
 
@@ -62,10 +103,11 @@ list.addEventListener("click", function(ev){
 
 // Create a new list item when clicking on the "Add" button
 
-function newElement() {
 
+function newElement() {
     var li = document.createElement("LI");
-    li.title = 'created task'
+    li.title = 'created task';
+
    var inputValue = document.getElementById("myInput").value;
 
     var t = document.createTextNode(inputValue);
@@ -109,6 +151,20 @@ function newElement() {
     }
 
 }
+
+// // var clearCompleted = document.getElementById('clearCompleted');
+
+// function clearCompleted(){
+
+//     for(var i = 0 ; i < li.length ; i++){
+
+ 
+//         if(li[i].classList = 'checked'){
+
+//             li[i].style.display = 'none';
+//         }
+//     }
+// }
 
     </script>
 </body>

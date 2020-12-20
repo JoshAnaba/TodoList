@@ -37,7 +37,6 @@ header{
     text-align: center;
     padding: 15px;
     background: rgb(40, 21, 163);
-    border-radius: 0 0 8px 8px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -124,6 +123,34 @@ ul li.checked::before{
     background-color: red;
     color: white;
 }
+
+
+#trackTasks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background-color:rgb(40, 21, 163); 
+    border-radius: 0px 0px 5px 5px;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+#trackTasks>*{
+    cursor: pointer;
+}
+
+.clear-completed:hover,#trackTasks>*>*:hover{
+    color: rgb(116, 113, 113)
+}
+
+#filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+}
+
 
 
 
