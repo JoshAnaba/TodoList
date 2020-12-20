@@ -3,7 +3,7 @@
 }
 
 body{ 
-    margin-top: 100px;
+    margin-top: 50px;
     background: #EEF2F7
 }
 
@@ -149,6 +149,11 @@ ul li.checked::before{
     flex-direction: row;
     justify-content: space-between;
     width: 60%;
+}
+
+#footer{
+ 
+    text-align: center;
 }
 
 
