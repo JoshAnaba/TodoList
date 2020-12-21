@@ -7,6 +7,7 @@
     <script type="text/javascript" src="todo.js"></script>
     <title>ToDo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type= 'text/javascript' src="script.js"></script>
 
 </head>
 <body>
@@ -45,33 +46,7 @@
     <div id='footer'><h2>Created by Josh Anaba  &copy;</h2></div>
             
     <script>
-        // track tasks
-        $(document).ready(()=>{
-            $('.clear-completed').click(()=>{
-                $('ul li.checked').remove();
-                $('ul li:not(.checked)').show()
-            });
-           
-            $('.filter-completed').click(()=>{
-                $('ul li:not(.checked)').hide();
-                $('ul li.checked').show();
-            });
-
-            $('.filter-active').click(()=>{
-                $('ul li.checked').hide();
-                $('ul li:not(.checked)').show();
-            });
-
-            $('.filter-all').click(()=>{
-                $('ul li').show()
-            });
-
-        });
-
-        $(document).ready(()=>{
-            
-            
-        })
+    
         // Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
 var i;
